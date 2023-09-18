@@ -15,4 +15,15 @@ then create views in app/views.py<br>
 then create templates inside app/templates/app/ <br>
 then define url patterns inside app/urls.py file <br>
 then include current app url in the project/urls.py file <br>
-then run server with runserver command
+then run server with runserver command <br>
+<br>
+<br>
+CRUD
+<br>
+create form of product model to handle form data in app/forms.py
+<br>
+create views for insert, update, delete in the views.py
+<br>
+create templates for create, update, delete and product form in templates<br>
+add new url patterns<br>
+add edit, update and insert product buttons in products list page
