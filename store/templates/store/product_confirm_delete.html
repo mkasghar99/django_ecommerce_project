@@ -1,0 +1,16 @@
+<!-- store/templates/store/product_confirm_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ product.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'product_list' %}">Cancel</a>
+</body>
+</html>
