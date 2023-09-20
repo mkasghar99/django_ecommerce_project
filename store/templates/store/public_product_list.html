@@ -1,0 +1,15 @@
+<!-- store/templates/store/public_product_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Public Product List</title>
+</head>
+<body>
+    <h1>Public Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

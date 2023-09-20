@@ -5,6 +5,14 @@
     <title>Product List</title>
 </head>
 <body>
+    <!-- Include this button in your HTML template -->
+{% if user.is_authenticated %}
+<form action="{% url 'user_logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+{% endif %}
+
     <h1>Product List</h1>
     <ul>
         {% for product in products %}

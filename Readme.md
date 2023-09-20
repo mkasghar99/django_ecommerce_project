@@ -26,4 +26,22 @@ create views for insert, update, delete in the views.py
 <br>
 create templates for create, update, delete and product form in templates<br>
 add new url patterns<br>
-add edit, update and insert product buttons in products list page
+add edit, update and insert product buttons in products list page<br>
+<br>
+<br>
+<br>
+3 User Auth
+<br>
+django has builtin system for user authentication so no need to create user model or table and ensure that installed apps has     'django.contrib.auth',
+<br>
+create user registeration form and login form in forms.py after importing necessary builtin authentication modules<br>
+import necessary modules in views.py<br>
+create registeration view which will register new user<br>
+then create regiser and login template inside new registeration directory<br>
+add register and login url pattern <br>
+also include django.contrib.auth.urls in urls.py of project <br>
+add login and logout redirect url in settings.py <br>
+then create login view too which checks user <br>
+made all existing views private by placing @login_required before each view<br>
+create logout button in admin template, and its view and then also define it in url pattern<br>
+create a products display page for public by creating view, its template and define it in url pattern. <br>
