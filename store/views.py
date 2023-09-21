@@ -9,6 +9,8 @@ from .forms import RegistrationForm
 from .forms import UserLoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+
 
 
 @login_required
@@ -82,4 +84,16 @@ def user_logout(request):
 
 def public_product_list(request):
     products = Product.objects.all()
-    return render(request, 'store/public_product_list.html', {'products': products})
+    # Define the number of products per page
+    items_per_page = 2
+
+    # Create a Paginator instance
+    paginator = Paginator(products, items_per_page)
+
+    # Get the current page number from the request's GET parameters
+    page_number = request.GET.get('page')
+
+    # Get the Page object for the current page
+    page = paginator.get_page(page_number)
+
+    return render(request, 'store/public_product_list.html', {'page': page})
