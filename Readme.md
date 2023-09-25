@@ -45,3 +45,21 @@ then create login view too which checks user <br>
 made all existing views private by placing @login_required before each view<br>
 create logout button in admin template, and its view and then also define it in url pattern<br>
 create a products display page for public by creating view, its template and define it in url pattern. <br>
+<br>
+<br>
+<br>
+5 cart
+<br>
+create following utility functions in store/utils.py file, and import these functions views.py <br>
+1. add to cart, it will add given product in session
+2. Remove from cart, it will remove given product from session
+3. Cart summary
+<br>
+create following three views <br>
+1. add to cart: this view will be called from form button on products page, which will send product id to this view and this view will call the util func to add item to cart <br>
+2. remove from cart: as above <br>
+3. cart view: this view call cart_summary utils func to get cart items and send it to cart.html template to display items<br>
+add url patterns for above three views.
+<br>
+<br>
+<br>

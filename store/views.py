@@ -10,6 +10,8 @@ from .forms import UserLoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from .utils import add_to_cart, remove_from_cart, cart_summary
+
 
 
 
@@ -97,3 +99,34 @@ def public_product_list(request):
     page = paginator.get_page(page_number)
 
     return render(request, 'store/public_product_list.html', {'page': page})
+
+def add_to_cart_view(request, product_id):
+    add_to_cart(request, product_id)
+    return redirect('cart')
+
+def remove_from_cart_view(request, product_id):
+    remove_from_cart(request, product_id)
+    return redirect('cart')
+
+def cart_view(request):
+    cart = request.session.get('cart', {})
+    total_price, total_items = cart_summary(cart)
+
+    # Calculate item prices
+    cart_items = []
+    for product_id, quantity in cart.items():
+        product = Product.objects.get(pk=product_id)
+        item_price = product.price * quantity
+        cart_items.append({
+            'product': product,
+            'quantity': quantity,
+            'item_price': item_price,
+        })
+
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'total_items': total_items,
+    }
+
+    return render(request, 'store/cart.html', context)

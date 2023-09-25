@@ -9,6 +9,11 @@
     <ul>
         {% for product in page %}
             <li>{{ product.name }} - {{ product.price }}</li>
+            <!-- "Add to Cart" button -->
+            <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
         {% endfor %}
     </ul>
 
