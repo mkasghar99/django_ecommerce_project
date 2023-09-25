@@ -45,3 +45,13 @@ then create login view too which checks user <br>
 made all existing views private by placing @login_required before each view<br>
 create logout button in admin template, and its view and then also define it in url pattern<br>
 create a products display page for public by creating view, its template and define it in url pattern. <br>
+<br>
+<br>
+<br>
+4_Pagination
+Django has builtin feature for pagination<br>
+first we need to import Paginator module in views.py<br>
+then we pass number of items per page and fetched products object to paginator<br>
+then we pass current page number to paginator, this number is recieved from get method of page<br>
+the we pass the paginator object which includes the products of current page, and info about pagination<br>
+then the above information is accessed in public products template and display the pagination accordingly<br>
